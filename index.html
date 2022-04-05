@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Truco</title>
+</head>
+
+<body>
+    <div class="jogoCompleto">
+        <div class="header">
+            <div class="nomeJogo">
+                <h1>Jogo de Truco</h1>
+            </div>
+            <div class="pontuacoes">
+                <fieldset>
+                    <legend><b>Rodada</b></legend>
+                    <p><b>Nós: </b><span id="minhaRodada"> 0 </span></p>
+                    <p><b>Eles:</b> <span id="rodadaDeles"> 0 </span></p>
+                </fieldset>
+                <fieldset>
+                    <legend><b>Pontos</b></legend>
+                    <p><b>Nós: </b><span id="minhaPontuacao"> 0 </span></p>
+                    <p><b>Eles:</b> <span id="pontuacaoDeles"> 0 </span></p>
+                </fieldset>
+                <fieldset>
+                    <legend><b>Jogos</b></legend>
+                    <p><b>Nós: </b> <span id="meuJogo"> 0 </span></p>
+                    <p><b>Eles: </b> <span id="jogoDeles"> 0 </span></p>
+                </fieldset>
+            </div>
+        </div>
+        <div class="linha1">
+            <div id="jogador1" class="jogador">
+                <div id="carta1"><img src="./Jogo de Truco/cartas/1.png" alt=""></div>
+                <div id="carta2"><img src="./Jogo de Truco/cartas/2.png" alt=""></div>
+                <div id="carta3"><img src="./Jogo de Truco/cartas/3.png" alt=""></div>
+            </div>
+        </div>
+        <div class="linha2">
+            <div id="jogador4" class="jogador">
+                <div id="carta4"><img src="./Jogo de Truco/cartas/4.png" alt=""></div>
+                <div id="carta5"><img src="./Jogo de Truco/cartas/5.png" alt=""></div>
+                <div id="carta6"><img src="./Jogo de Truco/cartas/6.png" alt=""></div>
+            </div>
+            <div class="mesa" id="mesa">
+                <div class="mesa-linhas">
+                    <div class="linha1-mesa">
+                        <div id="mesa-jogador1"><img src="./Jogo de Truco/cartas/7.png" alt=""></div>
+                    </div>
+                    <div class="linha2-mesa">
+                        <div id="mesa-jogador4"><img src="./Jogo de Truco/cartas/8.png" alt=""> </div>
+                        <div id="mesa-jogador2"><img src="./Jogo de Truco/cartas/9.png" alt=""></div>
+                    </div>
+                    <div class="linha3-mesa">
+                        <div id="mesa-jogador3"> <img src="./Jogo de Truco/cartas/11.png" alt=""></div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="jogador2" class="jogador">
+                <div id="carta7"><img src="./Jogo de Truco/cartas/12.png" alt=""></div>
+                <div id="carta8"><img src="./Jogo de Truco/cartas/13.png" alt=""></div>
+                <div id="carta9"><img src="./Jogo de Truco/cartas/14.png" alt=""></div>
+            </div>
+
+        </div>
+        <div class="linha3">
+            <div id="jogador3" class="jogador">
+                <div id="carta10"><img src="./Jogo de Truco/cartas/15.png" alt=""></div>
+                <div id="carta11"><img src="./Jogo de Truco/cartas/16.png" alt=""></div>
+                <div id="carta12"><img src="./Jogo de Truco/cartas/17.png" alt=""></div>
+            </div>
+        </div>
+        <div class="mesa-manilha">
+            <div class="manilha" id="manilha"><img src="./Jogo de Truco/cartas/10.png" alt=""></div>
+        </div>
+    </div>
+
+    <script src="./script-gerador-cartas.js"></script>
+    <script src="./script-desenha-cartas.js"></script>
+    <script src="./script-desenha-pontos.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
