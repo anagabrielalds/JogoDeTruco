@@ -208,7 +208,7 @@ function temManilha(lista, indice) {
     if (indice == 10) {
         manilhaNova = 1;
     }
-    return lista.findIndex(i => i == manilhaNova) != -1;
+    return lista.findIndex(i => i == manilhaNova + 1) != -1;
 }
 
 function preparaNovaRodada() {
