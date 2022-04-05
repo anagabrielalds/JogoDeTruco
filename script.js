@@ -38,9 +38,6 @@ document.addEventListener('click', function (e) {
         jogador = e.path[2].attributes.id.value;
 
         if (verificaVezDaJogada(jogador)) {
-            //alert(jogador);
-            // alert(cartaClicada);
-            //console.log("CARTA CLICADA: " + cartaClicada + "Jogador: " + jogador + "SRC IMAGEM: " + srcImagemClicada);
             colocaCartaJogadorNaMesa(jogador, srcImagemClicada);
             removerCartaJogada(cartaClicada);
             totalJogadas++;
@@ -132,8 +129,8 @@ function verificandoMaiorCarta() {
     var meuTimeTemManilha = temManilha(obtendoIndiceCartasJogadores1e3, indiceManilha[0]);
     var timeAdversarioTemManilha = temManilha(obtendoIndiceCartasJogadores2e4, indiceManilha[0]);
 
-    console.log("meuTimeTemManilha" + meuTimeTemManilha);
-    console.log("timeAdversarioTemManilha" + timeAdversarioTemManilha);
+    console.log("meuTimeTemManilha: " + meuTimeTemManilha);
+    console.log("timeAdversarioTemManilha: " + timeAdversarioTemManilha);
 
     if (meuTimeTemManilha || timeAdversarioTemManilha) {
 
@@ -177,7 +174,7 @@ function verificandoMaiorCarta() {
 function obtendoValorPeloIndiceDasCartas(cartas) {
     let ordenandoCartasPaus = [4, 5, 6, 7, 8, 9, 10, 1, 2, 3];
     let ordenandoCartasCopas = [14, 15, 16, 17, 18, 19, 20, 11, 12, 13];
-    let ordenandoCartasEspada = [2, 25, 26, 27, 28, 29, 30, 21, 22, 23];
+    let ordenandoCartasEspada = [24, 25, 26, 27, 28, 29, 30, 21, 22, 23];
     let ordenandoCartasOuro = [34, 35, 36, 37, 38, 39, 40, 31, 32, 33];
     let lista = [];
     for (let i = 0; i < 2; i++) {

@@ -45,7 +45,7 @@ function removerCartaJogada(idCarta) {
 }
 
 function colocaCartaJogadorNaMesa(jogador, src) {
-    let numCartaNaMesa = src.replace("./cartas/", "").replace(".png", "");
+    let numCartaNaMesa = src.replace("./cartas-vermelhas/", "").replace(".png", "");
     var mesaJogada = document.getElementById("mesa-" + jogador)
     mesaJogada.innerHTML = mesaJogada.innerHTML + '<img src="' + src + '" alt="Carta na mesa do "' + jogador +
         '>';
