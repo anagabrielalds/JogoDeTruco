@@ -3,13 +3,13 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
 .jogoCompleto {
     margin: 0;
     padding: 0;
-    width: 100%;
-    width: 100%;
+    width: 80%;
 }
 
 p {
@@ -29,18 +29,18 @@ p {
 }
 
 .linha3 img {
-    width: 125px;
+    width: 110px;
 
 }
 
 .mesa-manilha {
-    top: 478px;
+    top: 450px;
     right: 100px;
     position: absolute;
 }
 
 .mesa-manilha img {
-    width: 125px;
+    width: 100px;
     border: 1px dashed;
     /* transform: rotate(30deg); */
 }
@@ -74,8 +74,8 @@ img:hover {
 .header {
     display: flex;
     justify-content: space-between;
-    height: 50px;
-    width: 100%;
+    height: auto;
+    width: 20%;
     align-items: center;
     margin-bottom: 5px;
 }
@@ -84,8 +84,9 @@ img:hover {
     display: flex;
     justify-content: space-evenly;
     height: 50px;
-    width: 50%;
+    width: 80%;
     align-items: center;
+    flex-direction: column;
 }
 
 .nomeJogo {

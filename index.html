@@ -10,28 +10,6 @@
 
 <body>
     <div class="jogoCompleto">
-        <div class="header">
-            <div class="nomeJogo">
-                <h1>Jogo de Truco</h1>
-            </div>
-            <div class="pontuacoes">
-                <fieldset>
-                    <legend><b>Rodada</b></legend>
-                    <p><b>Nós: </b><span id="minhaRodada"> 0 </span></p>
-                    <p><b>Eles:</b> <span id="rodadaDeles"> 0 </span></p>
-                </fieldset>
-                <fieldset>
-                    <legend><b>Pontos</b></legend>
-                    <p><b>Nós: </b><span id="minhaPontuacao"> 0 </span></p>
-                    <p><b>Eles:</b> <span id="pontuacaoDeles"> 0 </span></p>
-                </fieldset>
-                <fieldset>
-                    <legend><b>Jogos</b></legend>
-                    <p><b>Nós: </b> <span id="meuJogo"> 0 </span></p>
-                    <p><b>Eles: </b> <span id="jogoDeles"> 0 </span></p>
-                </fieldset>
-            </div>
-        </div>
         <div class="linha1">
             <div id="jogador1" class="jogador">
                 <div id="carta1"><img src="./Jogo de Truco/cartas/1.png" alt=""></div>
@@ -74,11 +52,30 @@
                 <div id="carta12"><img src="./Jogo de Truco/cartas/17.png" alt=""></div>
             </div>
         </div>
-        <div class="mesa-manilha">
-            <div class="manilha" id="manilha"><img src="./Jogo de Truco/cartas/10.png" alt=""></div>
+    </div>
+    <div class="header">
+        <div class="pontuacoes">
+            <h1>Jogo de Truco</h1>
+            <fieldset>
+                <legend><b>Rodada</b></legend>
+                <p><b>Nós: </b><span id="minhaRodada"> 0 </span></p>
+                <p><b>Eles:</b> <span id="rodadaDeles"> 0 </span></p>
+            </fieldset>
+            <fieldset>
+                <legend><b>Pontos</b></legend>
+                <p><b>Nós: </b><span id="minhaPontuacao"> 0 </span></p>
+                <p><b>Eles:</b> <span id="pontuacaoDeles"> 0 </span></p>
+            </fieldset>
+            <fieldset>
+                <legend><b>Jogos</b></legend>
+                <p><b>Nós: </b> <span id="meuJogo"> 0 </span></p>
+                <p><b>Eles: </b> <span id="jogoDeles"> 0 </span></p>
+            </fieldset>
+            <div class="mesa-manilha">
+                <div class="manilha" id="manilha"><img src="./Jogo de Truco/cartas/10.png" alt=""></div>
+            </div>
         </div>
     </div>
-
     <script src="./script-gerador-cartas.js"></script>
     <script src="./script-desenha-cartas.js"></script>
     <script src="./script-desenha-pontos.js"></script>
