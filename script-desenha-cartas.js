@@ -24,12 +24,14 @@ function desenhaTodasCartas() {
 
         let desenhaJogador4 = document.getElementById("carta" + cartasJodador4[i]);
         desenhaJogador4.appendChild(criarImgNoHtml(cartasGeradasJogador4[i], "Cartas do Jogador 4: " + i));
-
     }
+    //Manilha
+    desenharCartaManilha();
 }
 
 function desenharCartaManilha() {
     let manilhaHtml = document.getElementById("manilha");
+    manilhaHtml.innerHTML = "";
     manilhaHtml.appendChild(criarImgNoHtml(manilha, "Manilha do Jogo"));
 }
 
