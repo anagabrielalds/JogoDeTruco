@@ -58,8 +58,6 @@ function verificaVezDaJogada(jogador) {
     return false;
 }
 
-
-
 function fimRodada() {
     setTimeout(function () {
         totalDaRodada++;
@@ -223,15 +221,9 @@ function preparaNovaRodada() {
     //quando não estiver mais cartas gerar novas
     if (totalJogadas == 12) {
         geradorTodasCartas();
-        desenharCartasDoAdversário();
-        desenharCartaManilha();
-        desenharCartaParceiro();
-        desenharMinhasCartas();
+        desenhaTodasCartas();
     }
 }
 
 geradorTodasCartas();
-desenharCartasDoAdversário();
-desenharCartaManilha();
-desenharCartaParceiro();
-desenharMinhasCartas();
+desenhaTodasCartas();
