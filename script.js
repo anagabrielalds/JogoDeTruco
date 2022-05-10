@@ -38,7 +38,7 @@ document.addEventListener('click', function (e) {
         jogador = e.path[2].attributes.id.value;
 
         if (verificaVezDaJogada(jogador)) {
-            colocaCartaJogadorNaMesa(jogador, srcImagemClicada);
+            colocaCartaJogadorNaMesa(jogador, cartaClicada);
             removerCartaJogada(cartaClicada);
             totalJogadas++;
 
@@ -63,12 +63,10 @@ function fimRodada() {
         totalDaRodada++;
         contabilizaPontos();
         preparaNovaRodada();
-    }, 1500);
+    }, 2000);
 }
 
 function contabilizaPontos() {
-    //alert("Hora de Contabilizar os pontos");
-    //debugger
     //obtendo qual foi as cartas jogadas na mesa
     var vencedorRodada = verificandoMaiorCarta();
     console.log("Vencedor da rodada é: " + vencedorRodada);
@@ -114,21 +112,16 @@ function verificandoMaiorCarta() {
     //Adicionando valores iguais para as cartas desconsiderando o naipe = Acopas vai ter o mesmo valor que Aouro
     var obtendoIndiceCartasJogadores1e3 = obtendoValorPeloIndiceDasCartas(cartasJogadasNaMesaJogador1e3);
     var obtendoIndiceCartasJogadores2e4 = obtendoValorPeloIndiceDasCartas(cartasJogadasNaMesaJogador2e4);
-
-    console.log("Indices das Cartas dos Jogadores 1 e 3");
-    console.log(obtendoIndiceCartasJogadores1e3);
-    console.log("Indices das Cartas dos Jogadores 2 e 4");
-    console.log(obtendoIndiceCartasJogadores2e4);
-
     var indiceManilha = obtendoValorPeloIndiceDasCartas([manilha]);
-
-    console.log("Indice da manilha" + indiceManilha);
-
     var meuTimeTemManilha = temManilha(obtendoIndiceCartasJogadores1e3, indiceManilha[0]);
     var timeAdversarioTemManilha = temManilha(obtendoIndiceCartasJogadores2e4, indiceManilha[0]);
 
-    console.log("meuTimeTemManilha: " + meuTimeTemManilha);
-    console.log("timeAdversarioTemManilha: " + timeAdversarioTemManilha);
+    console.log("Cartas dos Jogadores 1 e 3:  " + obtendoCartasPeloIndiceDasCartas(cartasJogadasNaMesaJogador1e3));
+    console.log("Cartas dos Jogadores 2 e 4:  " + obtendoCartasPeloIndiceDasCartas(cartasJogadasNaMesaJogador2e4));
+    console.log("Indice da manilha" + obtendoCartasPeloIndiceDasCartas([manilha])[0]);
+    console.log("Temos manilha: " + meuTimeTemManilha + "      eles tem mailha: " + timeAdversarioTemManilha);
+
+
 
     if (meuTimeTemManilha || timeAdversarioTemManilha) {
 
@@ -152,8 +145,7 @@ function verificandoMaiorCarta() {
 
         var maiorValorMeuTime = Math.max(...obtendoIndiceCartasJogadores1e3);
         var maiorValorAdversario = Math.max(...obtendoIndiceCartasJogadores2e4);
-        console.log("Maior valor do meu time: " + maiorValorMeuTime);
-        console.log("Maior valor do adversário: " + maiorValorAdversario);
+
         if (maiorValorMeuTime > maiorValorAdversario) {
             return "jogador1e3";
         } else if (maiorValorMeuTime == maiorValorAdversario) {
@@ -197,6 +189,45 @@ function obtendoValorPeloIndiceDasCartas(cartas) {
             aux = index
         }
         lista.push(aux + 1);
+    }
+    return lista;
+}
+
+function obtendoCartasPeloIndiceDasCartas(cartas) {
+    let ordenandoCartasPaus = [4, 5, 6, 7, 8, 9, 10, 1, 2, 3];
+    let ordenandoCartasCopas = [14, 15, 16, 17, 18, 19, 20, 11, 12, 13];
+    let ordenandoCartasEspada = [24, 25, 26, 27, 28, 29, 30, 21, 22, 23];
+    let ordenandoCartasOuro = [34, 35, 36, 37, 38, 39, 40, 31, 32, 33];
+    let obtendoCarta = [4, 5, 6, 7, "Q", "J", "K", "A", 2, 3];
+    let naipe = "";
+    let lista = [];
+    for (let i = 0; i < 2; i++) {
+        var carta = cartas[i];
+        var aux;
+        //verificandoCartasPaus
+        // ordenandoCartasPaus.indexOf(carta);  ==> seria legal ver depois porque essa linha não funcionou e a debaixo sim
+        var index = ordenandoCartasPaus.findIndex(t => t == carta);
+        if (index != -1) {
+            aux = index;
+            naipe = "Paus";
+        }
+        index = ordenandoCartasCopas.findIndex(t => t == carta);
+        if (index != -1) {
+            aux = index;
+            naipe = "Copas";
+        }
+        index = ordenandoCartasEspada.findIndex(t => t == carta);
+        if (index != -1) {
+            aux = index;
+            naipe = "Espada";
+        }
+        index = ordenandoCartasOuro.findIndex(t => t == carta);
+        if (index != -1) {
+            aux = index;
+            naipe = "Ouro"
+        }
+        let novoIndice = aux;
+        lista.push(obtendoCarta[novoIndice] + naipe);
     }
     return lista;
 }
