@@ -14,20 +14,24 @@ function desenhaTodasCartas() {
         //Meu Time
         let desenhaJogador1 = document.getElementById("carta" + cartasJodador1[i]);
         desenhaJogador1.innerHTML = "";
+        desenhaJogador1.style.visibility = "visible";
         desenhaJogador1.appendChild(criarImgNoHtml(imagemSemFundo, "cartas do Parceiro" + i));
 
         let desenhaJogador3 = document.getElementById("carta" + cartasJodador3[i]);
         desenhaJogador3.innerHTML = "";
+        desenhaJogador3.style.visibility = "visible";
         desenhaJogador3.appendChild(criarImgNoHtml(cartasGeradasJogador3[i], "Minhas Cartas" + i));
 
 
         //Time Adversário
         let desenhaJogador2 = document.getElementById("carta" + cartasJodador2[i]);
         desenhaJogador2.innerHTML = "";
+        desenhaJogador2.style.visibility = "visible";
         desenhaJogador2.appendChild(criarImgNoHtml(imagemSemFundo, "Cartas do Jogador 2: " + i));
 
         let desenhaJogador4 = document.getElementById("carta" + cartasJodador4[i]);
         desenhaJogador4.innerHTML = "";
+        desenhaJogador4.style.visibility = "visible";
         desenhaJogador4.appendChild(criarImgNoHtml(imagemSemFundo, "Cartas do Jogador 4: " + i));
     }
     //Manilha
@@ -41,8 +45,10 @@ function desenharCartaManilha() {
 }
 
 function removerCartaJogada(idCarta) {
+    debugger
     let cartaJogada = document.getElementById(idCarta);
-    cartaJogada.innerHTML = "";
+    // cartaJogada.innerHTML = "";
+    cartaJogada.style.visibility = 'hidden';
 }
 
 function colocaCartaJogadorNaMesa(jogador, classCarta) {
