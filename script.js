@@ -27,6 +27,7 @@ var totalPontosMeusJogos = 0;
 var totalPontosJogosDeles = 0;
 var cartasJogadasNaMesaJogador2e4 = [];
 var cartasJogadasNaMesaJogador1e3 = [];
+var controle = 1;
 
 
 
@@ -37,26 +38,21 @@ document.addEventListener('click', function (e) {
         cartaClicada = e.path[1].attributes.id.value;
         jogador = e.path[2].attributes.id.value;
 
-        if (verificaVezDaJogada(jogador)) {
+        if (jogador.substring(7) == '3' && jogador.substring(7) == vezDaJogada) {
             colocaCartaJogadorNaMesa(jogador, cartaClicada);
             removerCartaJogada(cartaClicada);
             totalJogadas++;
 
-            if (vezDaJogada - 1 == 4) {
+            setTimeout(function () {
+                JogadaDoJogador4();
+            }, 1000);
+            setTimeout(function () {
                 fimRodada();
-            }
+            }, 1600);
+
         }
     }
 });
-
-function verificaVezDaJogada(jogador) {
-    let numeroJogador = jogador.substring(7);
-    if (numeroJogador == vezDaJogada) {
-        vezDaJogada++;
-        return true;
-    }
-    return false;
-}
 
 function fimRodada() {
     setTimeout(function () {
@@ -64,6 +60,14 @@ function fimRodada() {
         contabilizaPontos();
         preparaNovaRodada();
     }, 2000);
+
+    setTimeout(function () {
+        JogadaDoJogador1();
+    }, 3000);
+
+    setTimeout(function () {
+        JogadaDoJogador2();
+    }, 4000);
 }
 
 function contabilizaPontos() {
@@ -92,6 +96,9 @@ function contabilizaPontos() {
         limparPontosRodadaDeles();
         limparPontosMinhaRodada();
         totalDaRodada = 0;
+        controle = 1;
+    } else {
+        controle++;
     }
     if (totalMeusPontos == 12 || totalPontosDeles == 12) {
         if (totalMeusPontos == 12) {
@@ -256,5 +263,85 @@ function preparaNovaRodada() {
     }
 }
 
+function JogadaDoJogador1() {
+    let carta = "";
+    switch (controle) {
+        case 1:
+            carta = "carta1";
+            break;
+
+        case 2:
+            carta = "carta2";
+            break;
+
+        case 3:
+            carta = "carta3";
+            break;
+
+        default:
+            break;
+    }
+    colocaCartaJogadorNaMesa("jogador1", carta);
+    removerCartaJogada(carta);
+    totalJogadas++;
+    vezDaJogada++;
+}
+
+function JogadaDoJogador2() {
+    let carta = "";
+    switch (controle) {
+        case 1:
+            carta = "carta7";
+            break;
+
+        case 2:
+            carta = "carta8";
+            break;
+
+        case 3:
+            carta = "carta9";
+            break;
+
+        default:
+            break;
+    }
+    colocaCartaJogadorNaMesa("jogador2", carta);
+    removerCartaJogada(carta);
+    totalJogadas++;
+    vezDaJogada++;
+}
+
+function JogadaDoJogador4() {
+    let carta = "";
+    switch (controle) {
+        case 1:
+            carta = "carta4";
+            break;
+
+        case 2:
+            carta = "carta5";
+            break;
+
+        case 3:
+            carta = "carta6";
+            break;
+
+        default:
+            break;
+    }
+    colocaCartaJogadorNaMesa("jogador4", carta);
+    removerCartaJogada(carta);
+    totalJogadas++;
+    vezDaJogada++;
+}
+
 geradorTodasCartas();
 desenhaTodasCartas();
+
+setTimeout(function () {
+    JogadaDoJogador1();
+}, 2000);
+
+setTimeout(function () {
+    JogadaDoJogador2();
+}, 2000);
