@@ -32,11 +32,9 @@ var controle = 1;
 
 
 document.addEventListener('click', function (e) {
-    if (e.path[0].attributes.src != undefined && e.path[1].attributes.id != undefined && e.path[2]
-        .attributes.id != undefined) {
-        let srcImagemClicada = e.path[0].attributes.src.value;
-        cartaClicada = e.path[1].attributes.id.value;
-        jogador = e.path[2].attributes.id.value;
+      if ( e.composedPath()[1].attributes.id != undefined && e.composedPath()[2].attributes.id != undefined) {
+        cartaClicada = e.composedPath()[1].attributes.id.value;
+        jogador = e.composedPath()[2].attributes.id.value;
 
         if (jogador.substring(7) == '3' && jogador.substring(7) == vezDaJogada) {
             colocaCartaJogadorNaMesa(jogador, cartaClicada);
